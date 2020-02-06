@@ -1,14 +1,13 @@
-
 #include "raylib.h"
+#include "const.h"
+
 
 int main(void) 
 {
-    // Window size
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    
 
     // Window initialization
-    InitWindow(screenWidth, screenHeight, "ray Tetris");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "ray Tetris");
 
     SetTargetFPS(60); 
 
@@ -17,6 +16,9 @@ int main(void)
     {
         BeginDrawing();
             ClearBackground(RAYWHITE);
+
+            DrawRectangleLines(0, 0, GRID_CELL_WIDTH, GRID_CELL_HEIGHT, BLACK);
+
             DrawText("Let's play ray Tetris!", 190, 200, 20, LIGHTGRAY);
         EndDrawing();
     }
