@@ -1,10 +1,14 @@
 # ray-tetris
-Simple Tetris game developed in raylib
+Simple Tetris game developed in raylib.
 
-## Linux
+## Installing
+
+### Linux
 > make ray-tetris
 
-## Windows
+### Windows
+I strongly recommend to download and install the raylib installer package for Windows.
+
 Using mingw:
 > mingw32-make ray-tetris
 
