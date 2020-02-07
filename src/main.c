@@ -19,7 +19,7 @@ int main(void)
 
             generateGameGrid();
 
-            DrawText("Let's play ray Tetris!", 190, 200, 20, SKYBLUE);
+            // DrawText("Let's play ray Tetris!", 190, 200, 20, SKYBLUE);
         EndDrawing();
     }
 

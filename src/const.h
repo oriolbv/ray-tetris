@@ -6,9 +6,7 @@
 #define MARGIN_TOP 20
 #define MARGIN_LEFT 20
 
-
 // Grid
-
 #define GRID_CELL_HEIGHT 20
 #define GRID_CELL_WIDTH 20
 #define GRID_H_CELLS_NUMBER 12
