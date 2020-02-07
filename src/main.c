@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "const.h"
-
+#include "background.c"
 
 int main(void) 
 {
@@ -15,18 +15,11 @@ int main(void)
     while (!WindowShouldClose())
     {
         BeginDrawing();
-            ClearBackground(RAYWHITE);
+            ClearBackground(SKYBLUE);
 
-            // Generation of the game grid
-            for(i = 0; i < GRID_V_CELLS_NUMBER; ++i)
-            {
-                for(j = 0; j < GRID_H_CELLS_NUMBER; ++j) {
-                    DrawRectangleLines(j*GRID_CELL_WIDTH, i*GRID_CELL_HEIGHT, GRID_CELL_WIDTH, GRID_CELL_HEIGHT, BLACK);
-                }
-            }
-            DrawRectangleLines(0, 0, GRID_CELL_WIDTH, GRID_CELL_HEIGHT, BLACK);
+            generateGameGrid();
 
-            DrawText("Let's play ray Tetris!", 190, 200, 20, LIGHTGRAY);
+            DrawText("Let's play ray Tetris!", 190, 200, 20, SKYBLUE);
         EndDrawing();
     }
 
