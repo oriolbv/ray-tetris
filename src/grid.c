@@ -35,3 +35,8 @@ void paintGameGrid()
         }
     }
 }
+
+void updateGameGrid() 
+{
+    GameGrid[3][3] = 1;
+}

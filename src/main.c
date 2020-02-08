@@ -1,6 +1,19 @@
 #include "raylib.h"
 #include "const.h"
 #include "grid.c"
+#include <pthread.h>
+#include <sys/time.h>
+
+void *threadproc(void *arg)
+{
+    bool done = false;
+    while(!done)
+    {
+        sleep(2);
+        updateGameGrid();
+    }
+    return 0;
+}
 
 int main(void) 
 {
@@ -8,6 +21,9 @@ int main(void)
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "ray Tetris");
 
     SetTargetFPS(60); 
+
+    pthread_t tid;
+    pthread_create(&tid, NULL, &threadproc, NULL);
     
     initGameGrid();
     
@@ -17,8 +33,6 @@ int main(void)
             ClearBackground(SKYBLUE);
 
             paintGameGrid();
-
-            // DrawText("Let's play ray Tetris!", 190, 200, 20, SKYBLUE);
         EndDrawing();
     }
 
