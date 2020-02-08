@@ -19,7 +19,7 @@ void paintGameGrid()
     {
         for(int j = 0; j < GRID_H_CELLS_NUMBER; ++j) 
         {
-            if (j == 3 && i == 7) 
+            if (GameGrid[i][j] != 0) 
             {
                 // If there is a block of any piece in the actual cell, we have to paint it with
                 // the piece color.
