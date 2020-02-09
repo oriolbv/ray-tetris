@@ -5,6 +5,7 @@
 
 
 int GameGrid[GRID_V_CELLS_NUMBER][GRID_H_CELLS_NUMBER];
+bool activePiece = False;
 
 void initGameGrid() 
 {
@@ -38,5 +39,14 @@ void paintGameGrid()
 
 void updateGameGrid() 
 {
+    if (!activePiece) 
+    {
+        
+    }
+    else 
+    {
+        
+    }
+
     GameGrid[3][3] = 1;
 }
