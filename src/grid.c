@@ -5,7 +5,7 @@
 
 
 int GameGrid[GRID_V_CELLS_NUMBER][GRID_H_CELLS_NUMBER];
-bool activePiece = False;
+bool activePiece = false;
 
 void initGameGrid() 
 {
@@ -41,11 +41,11 @@ void updateGameGrid()
 {
     if (!activePiece) 
     {
-        
+        // All pieces are in the ground
     }
     else 
     {
-        
+        // There is a piece falling
     }
 
     GameGrid[3][3] = 1;
