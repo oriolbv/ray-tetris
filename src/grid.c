@@ -7,6 +7,12 @@
 #include <string.h>
 
 
+struct Position 
+{ 
+   int x, y; 
+} position;
+
+
 int GameGrid[GRID_V_CELLS_NUMBER][GRID_H_CELLS_NUMBER];
 bool activePiece = false;
 
@@ -54,9 +60,31 @@ void updateGameGrid()
                 GameGrid[i][j] = O_BLOCK[i][j - center_pos];
             }
         }
+
+        // Store the actual position of the piece upper-left corner.
+        position.x = 0;
+        position.y = center_pos;
+
+        activePiece = true;
+
     }
     else 
     {
-        // There is a piece falling
+        // There is a piece falling and we need to update its position.
+        for(int i = position.x; i <= position.x + 3; ++i)
+        {
+            for(int j = position.y; j <= position.y + 3; ++j)
+            {
+                GameGrid[i][j] = 0;
+                GameGrid[i+1][j] = O_BLOCK[i][j - position.y];
+            }
+        }
+
+        // Store the actual position of the piece upper-left corner.
+        position.x = position.x + 1;
+        // position.y = position.y;
+
+        activePiece = true;
+        // GameGrid[position.x][4] = 1;
     }
 }

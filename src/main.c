@@ -9,7 +9,7 @@ void *threadproc(void *arg)
     bool done = false;
     while(!done)
     {
-        sleep(2);
+        sleep(1);
         updateGameGrid();
     }
     return 0;
