@@ -1,5 +1,8 @@
 #include "raylib.h"
 #include "const.h"
+#include "pieces.h"
+#include "utils.h"
+
 #include <stdio.h>
 #include <string.h>
 
@@ -41,12 +44,19 @@ void updateGameGrid()
 {
     if (!activePiece) 
     {
-        // All pieces are in the ground
+        // All pieces are in the ground.
+        // Calculate the position where the new piece will appear.
+        int center_pos = (GRID_H_CELLS_NUMBER / 2) - 2;
+        for(int i = 0; i < LEN(O_BLOCK); ++i)
+        {
+            for(int j = center_pos; j < center_pos + LEN(O_BLOCK[0]); ++j)
+            {
+                GameGrid[i][j] = O_BLOCK[i][j - center_pos];
+            }
+        }
     }
     else 
     {
         // There is a piece falling
     }
-
-    GameGrid[3][3] = 1;
 }

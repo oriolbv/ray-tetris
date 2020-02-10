@@ -2,7 +2,7 @@
 #include "const.h"
 #include "grid.c"
 #include <pthread.h>
-#include <sys/time.h>
+#include <unistd.h>
 
 void *threadproc(void *arg)
 {
