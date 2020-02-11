@@ -13,4 +13,4 @@
 #define GRID_V_CELLS_NUMBER 30
 
 // Game parameters
-#define GAME_VELOCITY 1000
+#define GAME_VELOCITY 1
