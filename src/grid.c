@@ -77,8 +77,9 @@ void updateGameGrid()
             {
                 if ((i <= position.x) && (j <= position.y)) 
                 {
+                    GameGrid[i+1][j] = GameGrid[i][j];
                     GameGrid[i][j] = 0;
-                    GameGrid[i+1][j] = O_BLOCK[i][j - position.y];
+                    
                 }
                 else 
                 {
