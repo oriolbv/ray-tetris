@@ -9,8 +9,8 @@
 // Grid
 #define GRID_CELL_HEIGHT 20
 #define GRID_CELL_WIDTH 20
-#define GRID_H_CELLS_NUMBER 12
-#define GRID_V_CELLS_NUMBER 30
+#define GRID_COLUMNS 12
+#define GRID_ROWS 30
 
 // Game parameters
 #define GAME_VELOCITY 1

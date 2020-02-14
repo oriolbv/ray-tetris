@@ -13,7 +13,7 @@ struct Position
 } position;
 
 
-int GameGrid[GRID_V_CELLS_NUMBER][GRID_H_CELLS_NUMBER];
+int GameGrid[GRID_ROWS][GRID_COLUMNS];
 bool activePiece = false;
 
 void initGameGrid() 
@@ -25,9 +25,9 @@ void initGameGrid()
 void paintGameGrid() 
 {
     // Generation of the game grid
-    for(int i = 0; i < GRID_V_CELLS_NUMBER; ++i)
+    for(int i = 0; i < GRID_ROWS; ++i)
     {
-        for(int j = 0; j < GRID_H_CELLS_NUMBER; ++j) 
+        for(int j = 0; j < GRID_COLUMNS; ++j) 
         {
             if (GameGrid[i][j] != 0) 
             {
@@ -52,12 +52,12 @@ void updateGameGrid()
     {
         // All pieces are in the ground.
         // Calculate the position where the new piece will appear.
-        int center_pos = (GRID_H_CELLS_NUMBER / 2) - 2;
-        for(int i = 0; i < LEN(O_BLOCK); ++i)
+        int center_pos = (GRID_COLUMNS / 2) - 2;
+        for(int i = 1; i < LEN(O_BLOCK) + 1; ++i)
         {
             for(int j = center_pos; j < center_pos + LEN(O_BLOCK[0]); ++j)
             {
-                GameGrid[i][j] = O_BLOCK[i][j - center_pos];
+                GameGrid[i][j] = O_BLOCK[i - 1][j - center_pos];
             }
         }
 
