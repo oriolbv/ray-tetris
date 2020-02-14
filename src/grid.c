@@ -70,6 +70,14 @@ void updateGameGrid()
     }
     else 
     {
+        if (IsKeyDown(KEY_LEFT)) 
+        {
+            position.y -= 1;
+        }
+        if (IsKeyDown(KEY_RIGHT)) 
+        {
+            position.y += 1;
+        }
         // There is a piece falling and we need to update its position.
         for(int i = sizeof(GameGrid)/sizeof(*GameGrid) - 1; i--; ) {
             for(int z = 0; z < sizeof(*GameGrid)/sizeof(**GameGrid); z++) {
@@ -79,7 +87,6 @@ void updateGameGrid()
 
         // Store the actual position of the piece upper-left corner.
         position.x = position.x + 1;
-        position.y = position.y;
 
         activePiece = true;
     }
