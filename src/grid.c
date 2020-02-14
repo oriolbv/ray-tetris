@@ -62,7 +62,7 @@ void updateGameGrid()
         }
 
         // Store the actual position of the piece down-right corner.
-        position.x = 0 + LEN(O_BLOCK);
+        position.x = LEN(O_BLOCK);
         position.y = center_pos + LEN(O_BLOCK[0]);
 
         activePiece = true;
@@ -71,29 +71,16 @@ void updateGameGrid()
     else 
     {
         // There is a piece falling and we need to update its position.
-        for(int i = LEN(O_BLOCK); i >= 0; --i)
-        {
-            for(int j = LEN(O_BLOCK[0]); j >= 0; --j)
-            {
-                if ((i <= position.x) && (j <= position.y)) 
-                {
-                    GameGrid[i+1][j] = GameGrid[i][j];
-                    GameGrid[i][j] = 0;
-                    
-                }
-                else 
-                {
-                    GameGrid[i][j] = 1;
-                }
-                
+        for(int i = sizeof(GameGrid)/sizeof(*GameGrid) - 1; i--; ) {
+            for(int z = 0; z < sizeof(*GameGrid)/sizeof(**GameGrid); z++) {
+                GameGrid[i+1][z] = GameGrid[i][z];
             }
         }
 
         // Store the actual position of the piece upper-left corner.
         position.x = position.x + 1;
-        // position.y = position.y;
+        position.y = position.y;
 
         activePiece = true;
-        // GameGrid[position.x][4] = 1;
     }
 }
