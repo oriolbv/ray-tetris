@@ -15,6 +15,12 @@ void *threadproc(void *arg)
     return 0;
 }
 
+int writeMessageLogger(char *msg) {
+    DrawText(msg, 265, 20, 10, BLACK);
+
+    return 0;
+}
+
 int main(void) 
 {
     // Window initialization
