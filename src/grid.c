@@ -8,8 +8,8 @@
 
 
 struct Position 
-{ 
-   int x, y; 
+{
+   int x, y;
 } position;
 
 
@@ -24,6 +24,25 @@ void initGameGrid()
 
 void paintGameGrid() 
 {
+    // Piece user control
+    if (IsKeyDown(KEY_LEFT)) 
+    {
+        position.y -= 1;
+        writeMessageLogger("Left");
+
+    }
+    if (IsKeyDown(KEY_RIGHT)) 
+    {
+        position.y += 1;
+        writeMessageLogger("Right");
+        for(int i = 0; i < LEN(O_BLOCK); ++i) {
+            for(int j = 0; j < LEN(O_BLOCK[0]); ++j)
+            {
+                GameGrid[i][j+i] = GameGrid[i][j];
+            }
+        }
+    }
+    
     // Generation of the game grid
     for(int i = 0; i < GRID_ROWS; ++i)
     {
@@ -70,14 +89,6 @@ void updateGameGrid()
     }
     else 
     {
-        if (IsKeyDown(KEY_LEFT)) 
-        {
-            position.y -= 1;
-        }
-        if (IsKeyDown(KEY_RIGHT)) 
-        {
-            position.y += 1;
-        }
         // There is a piece falling and we need to update its position.
         for(int i = sizeof(GameGrid)/sizeof(*GameGrid) - 1; i--; ) {
             for(int z = 0; z < sizeof(*GameGrid)/sizeof(**GameGrid); z++) {
