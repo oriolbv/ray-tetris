@@ -34,7 +34,7 @@ void paintGameGrid()
             int temp_it = flat_grid[0];
 
             // We will iterate the grid as a 1-D array.
-            for ( size_t i = 1; i < GRID_ROWS*GRID_COLUMNS; ++i )
+            for (int i = 1; i < GRID_ROWS*GRID_COLUMNS; ++i)
                 flat_grid[i-1] = flat_grid[i];
 
             flat_grid[GRID_ROWS*GRID_COLUMNS-1] = temp_it;
@@ -48,8 +48,21 @@ void paintGameGrid()
     }
     if (IsKeyDown(KEY_RIGHT)) 
     {
+        writeMessageLogger("Right");
+        // If position Y is smaller than the total number of columns
+        if (position.y < LEN(GameGrid[0])) {
+            int *flat_grid = (int *)GameGrid;
+            int temp_it = flat_grid[GRID_ROWS*GRID_COLUMNS - 1];
+
+            // We will iterate the grid as a 1-D array.
+            for (int i = GRID_ROWS*GRID_COLUMNS - 2; i >= 0; --i) 
+                flat_grid[i+1] = flat_grid[i];
+
+            flat_grid[0] = temp_it;
+
+            // Update Y position.
             position.y += 1;
-            writeMessageLogger("Right");
+        }
     }
 
     // Generation of the game grid
