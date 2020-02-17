@@ -12,10 +12,10 @@ struct Position
    int x, y;
 } position;
 
-
 int GameGrid[GRID_ROWS][GRID_COLUMNS];
 bool activePiece = false;
-bool gas = false;
+
+
 void initGameGrid() 
 {
     // Initialization of the grid with zero's content
@@ -24,46 +24,7 @@ void initGameGrid()
 
 void paintGameGrid() 
 {
-    // Piece user control
-    if (IsKeyDown(KEY_LEFT)) 
-    {
-        
-        writeMessageLogger("Left");
-        if (position.y > LEN(O_BLOCK[0])) {
-            int *flat_grid = (int *)GameGrid;
-            int temp_it = flat_grid[0];
-
-            // We will iterate the grid as a 1-D array.
-            for (int i = 1; i < GRID_ROWS*GRID_COLUMNS; ++i)
-                flat_grid[i-1] = flat_grid[i];
-
-            flat_grid[GRID_ROWS*GRID_COLUMNS-1] = temp_it;
-
-            // Update Y position.
-            position.y -= 1;
-        }
-        
-
-
-    }
-    if (IsKeyDown(KEY_RIGHT)) 
-    {
-        writeMessageLogger("Right");
-        // If position Y is smaller than the total number of columns
-        if (position.y < LEN(GameGrid[0])) {
-            int *flat_grid = (int *)GameGrid;
-            int temp_it = flat_grid[GRID_ROWS*GRID_COLUMNS - 1];
-
-            // We will iterate the grid as a 1-D array.
-            for (int i = GRID_ROWS*GRID_COLUMNS - 2; i >= 0; --i) 
-                flat_grid[i+1] = flat_grid[i];
-
-            flat_grid[0] = temp_it;
-
-            // Update Y position.
-            position.y += 1;
-        }
-    }
+    
 
     // Generation of the game grid
     for(int i = 0; i < GRID_ROWS; ++i)
