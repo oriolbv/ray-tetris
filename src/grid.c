@@ -75,7 +75,11 @@ void updateGameGrid()
         // There is a piece falling and we need to update its position.
         for(int i = sizeof(GameGrid)/sizeof(*GameGrid) - 1; i--; ) {
             for(int z = 0; z < sizeof(*GameGrid)/sizeof(**GameGrid); z++) {
-                GameGrid[i+1][z] = GameGrid[i][z];
+                if (i < LEN(GameGrid) - 1) 
+                {
+                    GameGrid[i+1][z] = GameGrid[i][z];
+                }
+                
             }
         }
 
