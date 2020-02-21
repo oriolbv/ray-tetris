@@ -7,6 +7,14 @@
 
 int game_velocity_ms = 500;
 
+
+
+/**
+ * Sleeps the execution during some time.
+ * 
+ * @param mseconds Number of milliseconds that the execution will sleep.
+ * @return 
+ */
 void msleep(unsigned int mseconds)
 {
     clock_t goal = mseconds + clock();
@@ -19,12 +27,20 @@ void *threadproc(void *arg)
     bool done = false;
     while(!done)
     {
+        // Wait until the next game cycle
         msleep(game_velocity_ms);
+        // Update GameGrid state
         updateGameGrid();
     }
     return 0;
 }
 
+/**
+ * Write message into top-right corner of the window.
+ * 
+ * @param msg Message to print.
+ * @return 
+ */
 void writeMessageLogger(char *msg) {
     DrawText(msg, 265, 20, 10, BLACK);
 }
