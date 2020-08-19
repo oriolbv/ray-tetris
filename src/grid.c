@@ -24,8 +24,6 @@ void initGameGrid()
 
 void paintGameGrid() 
 {
-    
-
     // Generation of the game grid
     for(int i = 0; i < GRID_ROWS; ++i)
     {
